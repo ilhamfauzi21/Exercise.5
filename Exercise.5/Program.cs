@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exercise_5_Algoritma_dan_Struktur_Data
+namespace UAS_081
 {
     class Node
     {
@@ -19,14 +19,14 @@ namespace Exercise_5_Algoritma_dan_Struktur_Data
 
     class Queues
     {
-        Node ILHAM;
-        Node FAUZI;
+        Node ITEM;
+        Node ID;
 
         public Queues()
         {
 
-            ILHAM = null;
-            FAUZI = null;
+            ITEM = null;
+            ID = null;
         }
         public void insert(char element)
         {
@@ -34,51 +34,51 @@ namespace Exercise_5_Algoritma_dan_Struktur_Data
             el = new Node(element, null);
 
 
-            if (ILHAM == null)
+            if (ITEM == null)
             {
-                ILHAM = el;
+                ITEM = el;
             }
             else
             {
-                FAUZI.next = el;
+                ID.next = el;
             }
-            FAUZI = el;
+            ID = el;
         }
         public int delete()
         {
             Node tmp;
-            Console.WriteLine("\nThe element delete from the queue is " + ILHAM + "\n");
+            Console.WriteLine("\nThe element delete from the queue is " + ITEM + "\n");
 
-            tmp = ILHAM;
-            ILHAM = ILHAM.next;
+            tmp = ITEM;
+            ITEM = ITEM.next;
 
-            if (ILHAM == null)
+            if (ITEM == null)
             {
-                FAUZI = null;
+                ID = null;
             }
             return tmp.info;
 
         }
         public void display()
         {
-            Node ILHAM_position;
-            ILHAM_position = ILHAM;
+            Node ITEM_position;
+            ITEM_position = ITEM;
 
-            if ((ILHAM_position == null) && (FAUZI == null))
+            if ((ITEM_position == null) && (ID == null))
             {
                 Console.WriteLine("Queue is empty");
                 return;
             }
             Console.WriteLine("\nElements in the queue are...\n");
 
-            while (ILHAM_position != FAUZI)
+            while (ITEM_position != ID)
             {
-                Console.WriteLine(ILHAM_position.info);
-                ILHAM_position = ILHAM_position.next;
+                Console.WriteLine(ITEM_position.info);
+                ITEM_position = ITEM_position.next;
             }
-            if (ILHAM_position == FAUZI)
+            if (ITEM_position == ID)
             {
-                Console.WriteLine(ILHAM_position.info);
+                Console.WriteLine(ITEM_position.info);
             }
             Console.WriteLine();
         }
@@ -134,4 +134,6 @@ namespace Exercise_5_Algoritma_dan_Struktur_Data
             }
         }
     }
-} 
+}
+//ALGORITMA PENCARIAN YANG SAYA KETAHUI YAITU ada Cara kerja dengan pohon binner
+//Cara kerja dari algoritma ini adalah dengan melakukan pengecekan data secara berulang kali dengan membuang setengah jumlah data sampai menemukan sebuah kecocokan. Dengan konsep seperti ini, lingkup pencarian data akan semakin mengecil setiap melakukan proses perulangan.
